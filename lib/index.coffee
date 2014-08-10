@@ -2,8 +2,8 @@ forecast = require './forecast.coffee'
 
 defaultPlace = process.env.DEFAULT_WEATHER_PLACE
 
-german = require './de.json'
-english = require './en.json'
+german = require './i18n/de.json'
+english = require './i18n/en.json'
 german = JSON.parse german
 english = JSON.parse english
 
