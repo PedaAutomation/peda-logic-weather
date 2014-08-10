@@ -19,7 +19,6 @@ defaultPlace = process.env.DEFAULT_WEATHER_PLACE
 
 forecast = new Forecast options
 
-wordConnection 
 
 getCoordinatesFromPlace = (place, cb) ->  
   url = "http://maps.google.com/maps/api/geocode/json?address=#{encodeURIComponent(place)}&sensor=false"
@@ -35,21 +34,24 @@ getDateOfDay = (dayOfWeek) ->
   date = new Date()
   date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + val + 1)  
 
+
 predictWeather = (language, helper) ->
   predictWeatherIn language, defaultPlace, "today"  
 
+
 predictWeatherIn = (language, place, time, helper) ->  
+  
   queryOptions = {
     lang: language
     units: "si"
   }  
+  
   date = getDateOfDay daysOfWeek[time] 
+  
   getCoordinatesFromPlace place, (location) ->
-    console.log location
-    console.log date.getTime()/1000
     forecast.getAtTime location.lat, location.lng, Math.floor(date.getTime()/1000), queryOptions, (err, res, data) ->
+     
       if err then throw err
-      console.log data
       data.currently.summary + helper.__("predictConnection") + data.currently.temperature + helper.__("degrees")
 
 
