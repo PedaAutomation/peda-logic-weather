@@ -4,10 +4,7 @@ defaultPlace = process.env.DEFAULT_WEATHER_PLACE
 
 german = require './i18n/de.json'
 english = require './i18n/en.json'
-german = JSON.parse german
-english = JSON.parse english
 
-language
 
 weatherNowHere = (data) ->
   command = data.capability.split(":")[1]
