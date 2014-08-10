@@ -1,0 +1,15 @@
+{
+  "name": "peda-logic-weather",
+  "description": "Weather logic module for Peda",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "Julius Möller",
+    "email": "the.porenta@web.de"
+  },
+  "dependencies": {
+    "coffee-script": "1.7.1",
+    "forecast.io": "0.0.9",
+    "request": "2.40.0"
+  }
+}

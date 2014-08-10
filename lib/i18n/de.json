@@ -1,0 +1,8 @@
+{
+  "weatherNowHere": "/Wie ist das Wetter/gi",
+  "weatherNow": "/Wie (ist|wird) das Wetter in (.+)/gi",
+  "weatherThenHere": "/Wie (ist|wird) das Wetter am (montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)/gi",
+  "weatherThen": "/Wie (ist|wird) das Wetter am (montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag) in (.+)/gi",
+  "predictConnection": " bei ",
+  "degrees": "grad celsius"
+}
