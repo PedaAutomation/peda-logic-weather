@@ -27,8 +27,7 @@ getCoordinatesFromPlace = (place, cb) ->
 
 #TODO: test if this works
 getDateOfDay = (dayOfWeek) ->
-  if dayOfWeek is "today" then
-    return new Date()
+  if dayOfWeek is "today" then return new Date()
     
   dayOfWeek = daysOfWeek[dayOfWeek]
   
