@@ -27,8 +27,11 @@ getCoordinatesFromPlace = (place, cb) ->
 
 #TODO: test if this works
 getDateOfDay = (dayOfWeek) ->
-  if date is "today" then
+  if dayOfWeek is "today" then
     return new Date()
+    
+  dayOfWeek = daysOfWeek[dayOfWeek]
+  
   val = dayOfWeek - (new Date().getDay())
   if val < 0 then val += 7
   date = new Date()
@@ -46,7 +49,7 @@ predictWeatherIn = (language, place, time, helper) ->
     units: "si"
   }  
   
-  date = getDateOfDay daysOfWeek[time] 
+  date = getDateOfDay time
   
   getCoordinatesFromPlace place, (location) ->
     forecast.getAtTime location.lat, location.lng, Math.floor(date.getTime()/1000), queryOptions, (err, res, data) ->
