@@ -37,12 +37,11 @@ getDateOfDay = (dayOfWeek) ->
   date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + val + 1)  
 
 
-predictWeather = (language, helper) ->
-  predictWeatherIn language, defaultPlace, "today"  
+predictWeather = (language, helper, cb) ->
+  predictWeatherIn language, defaultPlace, "today", helper, cb
 
 
-predictWeatherIn = (language, place, time, helper) ->  
-  
+predictWeatherIn = (language, place, time, helper, cb) ->  
   queryOptions = {
     lang: language
     units: "si"
@@ -53,9 +52,9 @@ predictWeatherIn = (language, place, time, helper) ->
   getCoordinatesFromPlace place, (location) ->
     forecast.getAtTime location.lat, location.lng, Math.floor(date.getTime()/1000), queryOptions, (err, res, data) ->
      
-      if err then throw err
-      data.currently.summary + helper.__("predictConnection") + data.currently.temperature + helper.__("degrees")
-
+      if err then cb err
+      cb data.currently.summary + helper.__("predictConnection") + data.currently.temperature + helper.__("degrees")
+      
 
 module.exports.predictWeather = predictWeather
 module.exports.predictWeatherIn = predictWeatherIn
