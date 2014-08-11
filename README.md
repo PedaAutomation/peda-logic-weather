@@ -12,9 +12,9 @@ You may also set __DEFAULT_WEATHER_PLACE__ to your home location.
 ## Commands
 You can find the exact commands for your language in /lib/i18n/yourlng.json
 * How is the weather? - Returns the current weather (short summary and temperature) at __DEFAULT_WEATHER_PLACE__
-* What is the weather on (day of week) - Returns a prediction of weather at __DEFAULT_WEATHER_PLACE__
-* What is the weather in (place) - Returns the current weather in the specified place.
-* What is the weather on (day of week) in (place) - Returns a prediction of weather at the specified place.
+* What is the weather on (day of week)? - Returns a prediction of weather at __DEFAULT_WEATHER_PLACE__
+* What is the weather in (place)? - Returns the current weather at the specified place.
+* What is the weather on (day of week) in (place)? - Returns a prediction of weather at the specified place.
 
 Example: What is the weather on monday in Frankfurt? 
 The answer will be something like: Partly cloudy at 14.54 °C
