@@ -9,14 +9,13 @@ language = null
 
 weatherNowHere = (data, slave) ->
   command = data.capability.split(":")[1]
-  input = data.command
   output = forecast.predictWeather(language, slave, (output) ->
     slave.sendOutputToCapability(output, "tts")
   )
 
 weatherThenHere = (data, slave) ->
   command = data.capability.split(":")[1]
-  input = data.command
+  input = data.command.command
   regex = slave.__regex(command)
   output = forecast.predictWeatherIn(language, defaultPlace, regex.exec(input)[1], slave, (output) ->
     slave.sendOutputToCapability(output, "tts")
@@ -24,15 +23,15 @@ weatherThenHere = (data, slave) ->
 
 weatherNow = (data, slave) ->
   command = data.capability.split(":")[1]
-  input = data.command
+  input = data.command.command
   regex = slave.__regex(command)  
-  output = forecast.predictWeatherIn(language, regex.exec(input)[2], "today", slave, (output) ->
+  output = forecast.predictWeatherIn(language, regex.exec(input)[1], "today", slave, (output) ->
     slave.sendOutputToCapability(output, "tts")
   )
 
 weatherThen = (data, slave) ->
   command = data.capability.split(":")[1]
-  input = data.command
+  input = data.command.command
   regex = slave.__regex(command)
   output = forecast.predictWeatherIn(language, regex.exec(input)[2], regex.exec(input)[1], slave, (output) ->
     slave.sendOutputToCapability(output, "tts")
