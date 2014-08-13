@@ -51,7 +51,7 @@ module.exports = (slave) ->
   slave.registerLogic "weatherNowHere", slave.__("weatherNowHere"), weatherNowHere
   slave.registerLogic "weatherThenHere", slave.__("weatherThenHere"), weatherThenHere
   slave.registerLogic "weatherThen", slave.__("weatherThen"), weatherThen 
-  slave.registerLogic "weatherNow", slave.__("weatherNow"), weatherNowHere
+  slave.registerLogic "weatherNow", slave.__("weatherNow"), weatherNow
 
 
  
