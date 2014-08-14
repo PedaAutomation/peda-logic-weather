@@ -33,7 +33,8 @@ weatherThen = (data, slave) ->
   command = data.capability.split(":")[1]
   input = data.command.command
   regex = slave.__regex(command)
-  output = forecast.predictWeatherIn(language, regex.exec(input)[2], regex.exec(input)[1], slave, (output) ->
+  placeAndTime = regex.exec(input)
+  output = forecast.predictWeatherIn(language, placeAndTime[2], placeAndTime[1], slave, (output) ->
     slave.sendOutputToCapability(output, "tts")
   )
 
